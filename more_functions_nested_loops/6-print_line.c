@@ -1,8 +1,9 @@
 #include "main.h"
+
 /**
- * print_line - function that checks for uppercase character.
- * @n: is the integer for the paramaters of my function
- * Return: 0
+ * print_line - prints straight line
+ * @n: the number of times a character should be printed
+ * Return: 0 for success
  */
 void print_line(int n)
 {
@@ -10,13 +11,13 @@ void print_line(int n)
 
 	if (n > 0)
 	{
-		while (a <= n)
+		while (a < n)
 		{
-			_putchar('_');
+			_putchar ('_');
 			a++;
 		}
-	_putchar('\n');
+		_putchar ('\n');
 	}
-	else
-	_putchar('\n');
+	else if (n <= 0)
+		_putchar ('\n');
 }
