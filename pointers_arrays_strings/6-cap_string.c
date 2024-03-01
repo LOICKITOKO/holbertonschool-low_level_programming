@@ -1,36 +1,29 @@
 #include "main.h"
-/**
- * cap_string - capitalizes most of the words in a string.
- * @s: analized string.
- *
- * Return: String with all words capitalized.
- */
-char *cap_string(char *s)
-{
-	int i, j;
-	int a[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	i = 0;
-	while (*(s + i) != '\0')
+/**
+ * leet - Write a function that encodes a string into 1337
+ *
+ * @changed: This is the input string
+ *
+ * Return: String converted to 1337
+ */
+
+char *leet(char *changed)
+{
+	int index, j;
+	char minus[] = {'a', 'e', 'o', 't', 'l', '\0'};
+	char mayus[] = {'A', 'E', 'O', 'T', 'L', '\0'};
+	char numbers[] = {'4', '3', '0', '7', '1', '\0'};
+
+	for (index = 0; changed[index] != '\0'; ++index)
 	{
-		if (*(s + i) >= 'a' && *(s + i) <= 'z')
+		for (j = 0; j < 5; j++)
 		{
-			if (i == 0)
+			if (changed[index] == minus[j] || changed[index] == mayus[j])
 			{
-				*(s + i) = *(s + i) - 32;
-			}
-			else
-			{
-				for (j = 0; j <= 12; j++)
-				{
-					if (a[j] == *(s + i - 1))
-					{
-						*(s + i) = *(s + i) - 32;
-					}
-				}
+				changed[index] = numbers[j];
 			}
 		}
-	i++;
 	}
-	return (s);
+	return (changed);
 }
